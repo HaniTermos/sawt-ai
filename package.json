@@ -1,0 +1,39 @@
+{
+  "name": "lebanese-ai-restaurant-call-center",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "tsx watch server/src/server.ts",
+    "dev:client": "vite --config vite.config.ts",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --config vite.config.ts",
+    "build:server": "tsc -p server/tsconfig.json",
+    "start": "node dist/server/server.js",
+    "test": "vitest run --config vitest.config.ts"
+  },
+  "dependencies": {
+    "@vapi-ai/web": "^2.7.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "nanoid": "^5.0.9"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "lucide-react": "^0.469.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8"
+  }
+}
