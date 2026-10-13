@@ -249,9 +249,11 @@ app.get('*', (req: Request, res: Response) => {
   res.status(200).send('Baytna Kitchen API Server is running. Client build pending.');
 });
 
-app.listen(PORT, () => {
-  console.log(`[Baytna AI Receptionist] Server running on http://localhost:${PORT}`);
-  console.log(`[OpenAI Status] ${OPENAI_API_KEY ? 'API Key Configured' : 'No API Key - Running in local text/demo mode'}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`[Baytna AI Receptionist] Server running on http://localhost:${PORT}`);
+    console.log(`[OpenAI Status] ${OPENAI_API_KEY ? 'API Key Configured' : 'No API Key - Running in local text/demo mode'}`);
+  });
+}
 
 export default app;
